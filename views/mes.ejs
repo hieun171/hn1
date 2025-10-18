@@ -1,0 +1,162 @@
+
+<%- include("partials/header.ejs") %>
+<!--Remember this include when add a new page-->
+<main class="container">
+  <!--main should move to main page-->
+  <!---->
+  <form>
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" value="<%= defaultDate %>" />
+  </form>
+
+  <!---->
+  <br>
+  <h1>Message</h1>
+  <!---->
+    <h5 class="cvlb" style="color: green"><u>For references👇</u></h5>
+    <!---->
+  <!---->
+  <div class="apt">
+    <!---->
+  
+    <!---->
+    <!--Add table-->
+    <!-- Bootstrap container: adds left/right padding and centers content -->
+
+    <div class="container mt-0">
+      <!-- Bootstrap card: adds a nice box around the content with padding and shadow -->
+      <div class="card shadow"> 
+        <!-- Card header: styled with background color and text color -->
+        <div class="card-header bg-primary text-white">
+          <h4 class="mb-0">Message</h4>
+          <!-- Table title -->
+        </div>
+
+        <!-- Card body: contains the table, with no padding to keep it tight -->
+        <div class="card-body p-0">
+          <!-- Responsive wrapper with both horizontal and vertical scroll -->
+          <div
+            class="table-responsive"
+            style="max-height: 500px; overflow-y: auto"
+          >
+            <!-- Responsive wrapper: enables horizontal scroll on small screens -->
+            <!-- <div class="table-responsive"> -->
+
+            <table class="table table-striped" id="taxTable">
+              <thead>
+                <tr>
+                  <th scope="col">#</th>
+                  <!-- Table header field 1-->
+                  <th scope="col">Name</th>
+                  <th scope="col">Phone</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Prefrred Communication</th>
+                  <th scope="col">Feedbacks</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <!-- Check if taxData exists and has rows -->
+                <% if (mes && mes.length > 0) { %>
+                <!-- Loop over each row in taxData using forEach -->
+                <% mes.forEach((row,index)=> { %>
+           <!--row: This is the current element in the array as the loop goes through each item.-->
+           <!--index: This is the position (or index) of that current element in the array, starting from 0.-->
+                <tr>
+                  <!-- Show row number starting from 1 -->
+                  <th scope="row"><%= index + 1 %></th>
+                  <!--scope="row" means that this <th> is a row header — it labels the entire row it's in.-->
+                  <td><%= row.name %></td>
+                  <td><%= row.phone %></td>
+                  <td><%= row.email %></td>
+                  <!-- Upper range of taxable income. If null, show '—' -->
+                  <td><%= row.commu %></td> <!--Use Window + . to insert emoji-->
+                  <!-- Tax rate (e.g., 10, 12, 22) shown as percentage at the end -->
+                  <td><%= row.comment %></td> <!--last % add percentage here not in database table-->
+                </tr>
+                <% }) %> <% } else { %>
+                <tr>
+                  <td colspan="6" class="text-muted">No data available.</td>
+                </tr>
+                <% } %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+     
+      
+      </div>
+ <!---->
+      <div class="apd">
+    <div class="card" style="width: 18rem">
+      <img src="/images/rose.png" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Hoa Hong</h5>
+        <p class="card-text">Ai cho Em nu hong.</p>
+        <a id="m1" href="#" class="btn btn-primary">Music</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem">
+      <img src="/images/HM.png" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Hoa Mai</h5>
+        <p class="card-text">Cho vua long Em.</p>
+        <a id="m5" href="#" class="btn btn-primary">Nghe Nhac</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem">
+      <img src="/images/rose.png" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Hong Hoa</h5>
+        <p class="card-text">Hong thom hay moi Em thom.</p>
+        <a id="m2" href="#" class="btn btn-primary">Nhac</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="apd">
+    <div class="card" style="width: 18rem">
+      <img src="/images/HT.png" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Hoa Cuc</h5>
+        <p class="card-text">Thu Cuc.</p>
+        <a id="m6" href="#" class="btn btn-primary">Nghe Hat</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem">
+      <img src="/images/CT.png" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Cay Thong</h5>
+        <p class="card-text">Cay Thong.</p>
+        <a id="m9" href="#" class="btn btn-primary">Thong</a>
+      </div>
+    </div>
+
+    <div class="card" style="width: 18rem">
+      <img src="/images/HT.png" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title">Hoa Trang</h5>
+        <p class="card-text">Hoa Trang</p>
+        <a id="m7" href="#" class="btn btn-primary">Ngam Hoa</a>
+      </div>
+    </div>
+  </div>
+    </div>
+  </div>
+
+  <!---->
+  <!--Refer to index.ejs how to include header and footer.ejs-->
+</main>
+<!---->
+<!-- Link external JS -->
+<script src="/js/static.js"></script>
+<!-- Link external JS end -->
+<!-- Link external JS -->
+
+<!-- Link external JS end -->
+<!---->
+<%- include("partials/footer.ejs") %><!--Remember this include when add a new page-->
